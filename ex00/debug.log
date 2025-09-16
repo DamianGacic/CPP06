@@ -1,6 +1,0 @@
-DEBUG: convert called with: '123456.5'
-DEBUG: detected as double: 123456.5000000000
-DEBUG: print_double called with: 123456.5000000000
-DEBUG: double_val == static_cast<int>(double_val): 0
-DEBUG: static_cast<float>(double_val): 123456.5000000000
-DEBUG: static_cast<float>(double_val) == static_cast<int>(static_cast<float>(double_val)): 0
