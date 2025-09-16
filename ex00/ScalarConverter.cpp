@@ -149,13 +149,13 @@ void	ScalarConverter::print_float(float float_val)
 	else if (float_val == static_cast<int>(float_val))
 		std::cout << "float: " << std::fixed << std::setprecision(1) << float_val << "f" << std::endl; // Integer values with .0
 	else
-		std::cout << "float: " << float_val << "f" << std::endl; // Preserve precision for non-integers
+		std::cout << "float: " << std::setprecision(7) << float_val << "f" << std::endl; // Preserve precision for non-integers
 	if (std::isnan(static_cast<double>(float_val)) || std::isinf(static_cast<double>(float_val)))
 		std::cout << "double: " << static_cast<double>(float_val) << std::endl; // Special values as-is
 	else if (static_cast<double>(float_val) == static_cast<int>(static_cast<double>(float_val)))
 		std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(float_val) << std::endl; // Integer values with .0
 	else
-		std::cout << "double: " << static_cast<double>(float_val) << std::endl; // Preserve precision for non-integers
+		std::cout << "double: " << std::setprecision(15) << static_cast<double>(float_val) << std::endl; // Preserve precision for non-integers
 }
 
 void	ScalarConverter::print_double(double double_val)
@@ -179,11 +179,11 @@ void	ScalarConverter::print_double(double double_val)
 	else if (double_val == static_cast<int>(double_val))
 		std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(double_val) << "f" << std::endl; // Integer values with .0
 	else
-		std::cout << "float: " << static_cast<float>(double_val) << "f" << std::endl; // Preserve precision for non-integers
+		std::cout << "float: " << std::setprecision(7) << static_cast<float>(double_val) << "f" << std::endl; // Preserve precision for non-integers
 	if (std::isnan(double_val) || std::isinf(double_val))
 		std::cout << "double: " << double_val << std::endl; // Special values as-is
 	else if (double_val == static_cast<int>(double_val))
 		std::cout << "double: " << std::fixed << std::setprecision(1) << double_val << std::endl; // Integer values with .0
 	else
-		std::cout << "double: " << double_val << std::endl; // Preserve precision for non-integers
+		std::cout << "double: " << std::setprecision(15) << double_val << std::endl; // Preserve precision for non-integers
 }
