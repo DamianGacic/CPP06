@@ -54,9 +54,8 @@ bool	ScalarConverter::is_float(const std::string& input_string, float& value)
 	parsed_double = strtod(input_string.c_str(), &end_ptr); // Convert string to double first
 	if (*end_ptr == 'f' && *(end_ptr + 1) == '\0') // Check for 'f' suffix
 	{
-		if (parsed_double == HUGE_VAL || parsed_double == -HUGE_VAL) // Check for overflow
-			return (false);
-		if (parsed_double > std::numeric_limits<float>::max() || parsed_double < -std::numeric_limits<float>::max()) // Check float range
+		if (!std::isnan(parsed_double) && !std::isinf(parsed_double) &&
+			(parsed_double > std::numeric_limits<float>::max() || parsed_double < -std::numeric_limits<float>::max())) // Check float range
 			return (false);
 		value = static_cast<float>(parsed_double);
 		return (true);
@@ -72,8 +71,6 @@ bool	ScalarConverter::is_double(const std::string& input_string, double& value)
 	parsed_double = strtod(input_string.c_str(), &end_ptr); // Convert string to double
 	if (*end_ptr == '\0') // Check if entire string was consumed
 	{
-		if (parsed_double == HUGE_VAL || parsed_double == -HUGE_VAL) // Check for overflow
-			return (false);
 		value = parsed_double;
 		return (true);
 	}
